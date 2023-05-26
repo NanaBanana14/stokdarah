@@ -184,7 +184,7 @@ if(isset($_POST['updatedatakeluar'])){
 
     //Menghitung stok sekarang dengan qty baru
     if ($qty >= $qtyskrng && $qtyskrng > 0) {
-        $tambahstoksekarangdenganquantity = $stokskrng + ($qty - $qtyskrng);
+        $tambahstoksekarangdenganquantity = $stokskrng - ($qty - $qtyskrng);
     } else {
         $tambahstoksekarangdenganquantity = $stokskrng;
     }
@@ -239,7 +239,7 @@ if(isset($_POST['adddatadetail'])){
 
     $addtodetail = mysqli_query($conn, "INSERT into informasi_detail_darah (id_stok, goldar, rhesus, produk) values ('$darahnya', '$goldar', '$rhesus', '$produk') ");
 
-    if($addtotable){
+    if($addtodetail){
         header('location:detaildarah.php');
     } else {
         echo 'Gagal';
@@ -338,7 +338,7 @@ if(isset($_POST['adddatadetailstok'])){
 
     $addtodetail = mysqli_query($conn, "INSERT into detail_stok_darah (id_stok, kadaluarsa, suhu, keterangan_stok) values ('$darahnya', '$kadaluarsa', '$suhu', '$keterangan') ");
 
-    if($addtotable){
+    if($addtodetail){
         header('location:detailstokdarah.php');
     } else {
         echo 'Gagal';
